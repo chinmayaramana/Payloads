@@ -1,4 +1,97 @@
+The attacker can inject malicious formulas that are executed by the spreadsheet software when a legitimate user opens the file. This can lead to phishing attacks, command execution on vulnerable systems, data exfiltration, or manipulation of financial or business logic in the spreadsheet. Such attacks are especially effective against finance, HR, or audit users who frequently handle exported data.
+
+It is recommended to:
+Sanitize all fields in CSV exports by prefixing dangerous characters (=, +, -, @) with a single quote (') to neutralize formula execution.
+Example: Convert input like =cmd|' /C calc'!A0 into '=cmd|' /C calc'!A0.
+Escape any formula-like input server-side during CSV generation to ensure the raw data is treated as plain text by spreadsheet software.
+Review all CSV export functionalities across the application and apply sanitization wherever user-controlled input is included.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+Content Security Policy (CSP) Not Configured
+Description:
+The test team observed that the application does not implement a Content Security Policy header.
+
+Observation:
+In the current scenario, the test team analyzed the HTTP response headers and found that the Content-Security-Policy header was missing. This header is a critical defense mechanism against Cross-Site Scripting (XSS), data injection, and other browser-based attacks by controlling the sources of content that can be loaded by the application.
+Risk Impact:
+The attacker can inject and execute malicious scripts in the browser, potentially leading to XSS attacks, session theft, data exfiltration, or unauthorized actions on behalf of the user.
+Severity: Low
+Recommendations:
+It is recommended to:
+Implement a restrictive Content-Security-Policy header to limit sources of scripts, styles, images, and frames.
+Example:
+Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'; frame-ancestors 'none';
+Define separate directives for trusted domains if third-party resources are used.
+OWASP Top 10 2021 Mapping: A05:2021 – Security Misconfiguration
+CVSS 3.1 Score: 3.1 (Low)
+CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N
+CWE: CWE-693: Protection Mechanism Failure
+----------------------------------------------------------------------------------------------------------
+Missing SameSite Attribute
+Description:
+The test team observed that authentication-related cookies are missing the SameSite attribute.
+
+Observation:
+In the current scenario, the test team found that session or authentication cookies set by the server do not include the SameSite attribute. This allows the browser to include the cookies in cross-site requests, increasing the risk of CSRF attacks.
+
+Risk Impact:
+The attacker can perform Cross-Site Request Forgery attacks by tricking an authenticated user into making unwanted requests that are processed by the server with valid authentication cookies.
+
+Severity: Low
+Recommendations:
+It is recommended to:
+Set the SameSite attribute for all authentication-related cookies.
+Use SameSite=Strict to completely prevent cross-site sending.
+Or SameSite=Lax to allow safe top-level navigation requests only.
+Example:
+Set-Cookie: sessionid=abc123; HttpOnly; Secure; SameSite=Strict
+Apply this setting throughout the application wherever cookies related to sessions, authentication, or sensitive state are issued.
+OWASP Top 10 2021 Mapping: A05:2021 – Security Misconfiguration
+CVSS 3.1 Score: 3.3 (Low)
+CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N
+CWE: CWE-1275: Sensitive Cookie Without "SameSite" Attribute
+
+------------------------------------
+Missing Security Headers
+Description:
+The test team observed that multiple essential security headers are missing in the application’s HTTP responses.
+
+Observation:
+In the current scenario, the test team confirmed the absence of the following security headers:
+X-Content-Type-Options: Prevents MIME-type sniffing.
+Referrer-Policy: Controls how much referrer information is sent with requests.
+Permissions-Policy: Restricts access to browser features like camera, microphone, geolocation.
+These headers help harden the application against various browser-based attack vectors and data leakage.
+
+Risk Impact:
+The attacker can exploit the absence of these headers to force MIME-type sniffing, perform user tracking, or access browser features that should be restricted.
+
+Severity: Low
+Recommendations:
+It is recommended to:
+Set X-Content-Type-Options: nosniff to prevent MIME-based attacks.
+Set Referrer-Policy: no-referrer or strict-origin-when-cross-origin to limit sensitive data in referrer headers.
+Set Permissions-Policy to explicitly restrict unused browser APIs (e.g., Permissions-Policy: geolocation=(), microphone=(), camera=()).
+
+OWASP Top 10 2021 Mapping: A05:2021 – Security Misconfiguration
+CVSS 3.1 Score: 3.0 (Low)
+CVSS Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N
+
+CWE: CWE-693: Protection Mechanism Failure
+
+
+
+
+
+
+
 Stored Cross-Site Scripting (XSS) in <field name>
+
+
+
+
+
+
 Description:
 The test team observed that the application is vulnerable to Stored XSS in the <field name> field.
 Observation:
