@@ -1,3 +1,11 @@
+The attacker can exploit the lack of the X-Content-Type-Options: nosniff header to force browsers to interpret files as a different MIME type than intended, which can lead to the execution of malicious scripts or unintended behavior, especially when user-uploaded content is involved.
+
+
+
+
+
+
+
 openssl_conf = openssl_init
 
 [openssl_init]
