@@ -1,3 +1,22 @@
+openssl_conf = openssl_init
+
+[openssl_init]
+providers = provider_sect
+
+[provider_sect]
+default = default_sect
+legacy = legacy_sect
+
+[default_sect]
+activate = 1
+
+[legacy_sect]
+activate = 1
+
+
+
+
+
 The attacker can inject malicious formulas that are executed by the spreadsheet software when a legitimate user opens the file. This can lead to phishing attacks, command execution on vulnerable systems, data exfiltration, or manipulation of financial or business logic in the spreadsheet. Such attacks are especially effective against finance, HR, or audit users who frequently handle exported data.
 
 It is recommended to:
