@@ -21,7 +21,7 @@ It was found that the server supports vulnerable CBC-mode ciphers, which are sus
 
 During active scanning, the test team identified several paths being disclosed, and upon validation, confirmed that the following path is accessible and exposes sensitive information.
 
-
+In the current scenario, the test team observed that the feedback submission endpoint accepts multiple rapid requests in quick succession without any throttling or restriction, indicating the absence of rate-limiting controls to prevent automated or abusive usage.
 
 
 
