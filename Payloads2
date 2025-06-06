@@ -14,6 +14,20 @@ nmap -p 443 -sV -sC --script "ssl-* and http-* and vuln" --script-args http.user
 nmap -p 443 -sV --script ssl-enum-ciphers,ssl-cert,http-methods,http-headers,http-title,vulners -T4 -Pn <target>
 
 
+Its Important;-
+Avoid disclosing sensitive application details such as API endpoints, internal implementation notes, or technology stack information in publicly accessible documentation or responses
+
+It was found that the server supports vulnerable CBC-mode ciphers, which are susceptible to padding oracle attacks such as LUCKY13
+
+During active scanning, the test team identified several paths being disclosed, and upon validation, confirmed that the following path is accessible and exposes sensitive information.
+
+
+
+
+
+
+
+
 
 
 
